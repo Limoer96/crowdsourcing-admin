@@ -13,13 +13,13 @@
         </MenuItem>
       </MenuGroup>
       <MenuGroup title="回答管理">
-        <MenuItem name="show_answers">
+        <MenuItem name="answer_list">
           <Icon type="ios-list"></Icon>
           展示答案
         </MenuItem>
       </MenuGroup>
       <MenuGroup title="用户管理">
-        <MenuItem name="show_users">
+        <MenuItem name="user_list">
           <Icon type="ios-people"></Icon>
           用户展示
         </MenuItem>

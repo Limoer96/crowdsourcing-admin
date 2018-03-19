@@ -4,6 +4,8 @@ import Login from '@/components/Login';
 import Dashbord from '@/components/Dashbord';
 import AddTask from '@/components/AddTask';
 import TaskList from '@/components/TaskList';
+import AnswerList from '@/components/AnswerList';
+import UserList from '@/components/UserList';
 Vue.use(Router)
 
 export default new Router({
@@ -25,9 +27,19 @@ export default new Router({
         {
           path: 'list_task',
           component: TaskList
+        },
+        {
+          path: 'answer_list',
+          component: AnswerList
+        },
+        {
+          path: 'user_list',
+          component: UserList
         }
       ]
     }
   ]
 })
+
+
 

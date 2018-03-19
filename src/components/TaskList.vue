@@ -2,7 +2,7 @@
   <div class="task-list-container">
     <Spin v-if="loading"></Spin>
     <Table width="100%" border :columns="columns" :data="mockData"></Table>
-    <Alert type="error" v-if="error" closable>加载出错...</Alert>
+    <Alert style="margin-top: 10px" type="error" v-if="error" closable>{{error}}</Alert>
   </div>
 </template>
 
@@ -124,7 +124,6 @@ export default {
   }, 
   methods: {
     show(index) {
-      console.log(this);
       this.$Modal.info({
         title: '任务详情',
         content: `任务编号：${this.mockData[index].t_id}<br>任务名称：${this.mockData[index].task_name}<br>任务描述：${this.mockData[index].desc}<br>发布时间：${this.mockData[index].publish_time}
