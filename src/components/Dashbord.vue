@@ -7,7 +7,7 @@
           <Icon type="plus-circled"></Icon>
           添加任务
         </MenuItem>
-        <MenuItem name="show_tasks">
+        <MenuItem name="list_task">
           <Icon type="eye"></Icon>
           查看任务
         </MenuItem>

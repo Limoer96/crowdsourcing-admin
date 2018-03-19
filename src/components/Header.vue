@@ -31,7 +31,6 @@ export default {
       showLoginForm: types.SHOW_LOGIN_FORM
     }),
     logout(){
-      console.log(types.CLEAR_TOKEN_AND_LOGOUT);
       this.$store.commit(types.CLEAR_TOKEN_AND_LOGOUT, { $router: this.$router });
     }
   },
