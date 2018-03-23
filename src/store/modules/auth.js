@@ -15,7 +15,7 @@ const getters = {
 const actions = {
   auth({ commit, state }, payload) {
     commit(types.WAIT_FOR_RESPONSE); // 让其变成loading状态
-    // api.auth(inputInfo).then((json) => {
+    // api.auth().then((json) => {
     //   const { userName, token } = json.result;
     //   // commit 成功的mutations
     //   commit(types.AUTH_SUCCESS_AND_SAVE_TOKEN, { userName,  token})
@@ -28,8 +28,7 @@ const actions = {
       localStorage.setItem('userName', 'Limoer');
       localStorage.setItem('token', '2311105'); // 保存在本地的token
       commit(types.AUTH_SUCCESS_AND_SAVE_TOKEN, { userName: 'limoer',  token: '2311105'});
-      payload.$router.push('/dashbord');
-      
+      payload.$router.push('/dashbord'); 
     }, 2000)
     // 模拟后端请求
     // 模拟登录错误

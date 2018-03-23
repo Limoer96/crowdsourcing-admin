@@ -18,7 +18,7 @@ export default {
     width: 100%;
     height: 60px;
     background-color: rgb(115, 119, 122);
-    /* border-top: 1px solid rgba(255, 255, 255, .2); */
+    bottom: 0;
   }
   .footer-wrapper > p {
     margin-left: 10%;

@@ -1,7 +1,7 @@
 <template>
   <div class="dashbord-container">
     <div id="menu-wrapper">
-      <Menu theme="dark" style="height: 100%" @on-select="changeTabs">
+      <Menu theme="dark" style="height: 706px" @on-select="changeTabs">
       <MenuGroup title="任务管理">
         <MenuItem name="add_task">
           <Icon type="plus-circled"></Icon>
@@ -29,12 +29,18 @@
     <div id="content-wrapper">
       <router-view></router-view>
     </div>
+    <BackTop></BackTop>
   </div>
 </template>
 
 <script>
 export default {
   name: 'Dashbord',
+  data() {
+    return {
+      height: 1000
+    }
+  },
   mounted() {
     if(!localStorage.getItem('token')) {
       this.$router.push('/');
@@ -57,7 +63,7 @@ export default {
 .dashbord-container {
   position: relative;
   width: 100%;
-  height: calc(100% - 120px);
+  min-height: calc(100% - 120px);
   display: flex;
 }
 #menu-wrapper {
@@ -67,6 +73,7 @@ export default {
 #content-wrapper {
   height: 100%;
   width: calc(100% - 240px);
+  margin-top: 20px;
 }
 </style>
 

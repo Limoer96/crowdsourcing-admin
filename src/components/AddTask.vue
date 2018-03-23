@@ -43,6 +43,21 @@
             <Button type="ghost" @click="handleRemove(index)">删除</Button>
           </Col>
         </Row>
+        <Row>
+            <RadioGroup>
+              <Radio 
+                v-for="(item1, index1) in item.options" 
+                :key="index1"
+                :label="item1"
+              >
+                  选项{{index1 + 1}}: {{ item1 }}
+                  <Button type="ghost" size="small" @click="removeOption(index, index1)">删除</Button>
+              </Radio>
+            </RadioGroup>
+        </Row>
+        <FormItem>
+        <Button type="dashed" @click="addOptions(index)" icon="plus-round">添加选项</Button>
+        </FormItem>
       </FormItem>
       <FormItem>
         <Button type="dashed" long @click="addQuestions" icon="plus-round">添加问题</Button>
@@ -76,6 +91,7 @@ export default {
     return {
       index: 1,
       dataComplete: [],
+      tempValue: '',
       taskData: {
         taskName: '',
         taskDesc: '',
@@ -86,7 +102,8 @@ export default {
           {
             value: '',
             index: 1,
-            status: 1
+            status: 1,
+            options: ['这是选项一', '这是选项二'],
           }
         ]
       },
@@ -134,14 +151,39 @@ export default {
       })
     },
     handleRemove(index) {
-      this.taskData.questions[index].status = 0;
+      this.taskData.questions.splice(index, 1); // 删除对应index的问题
+    },
+    removeOption(index, index1) {
+      this.taskData.questions[index].options.splice(index, 1); // 
     },
     addQuestions() {
       this.index ++;
       this.taskData.questions.push({
         value: '',
         index: this.index,
-        status: 1
+        status: 1,
+        options: []
+      })
+    },
+    addOptions(index){
+      this.$Modal.confirm({
+        render: (h) => {
+          return h('Input', {
+            props: {
+              autofocus: true,
+              placeholder: '输入选项'
+            },
+            on: {
+              input: (val) => {
+                this.tempValue = val;
+              }
+            }
+          }
+          );
+        },
+        onOk: () => {
+          this.taskData.questions[index].options.push(this.tempValue);
+        }
       })
     },
     handleSubmit(name) {
